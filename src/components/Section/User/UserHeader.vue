@@ -1,7 +1,14 @@
 <template>
     <header class="header">
         <DashLogo class="logo" setwidth="172" setheight="115"  />
-        <div class="right_icon_menu">
+        <nav id="side_menu" ref="menu">
+          <div class="item">Dashboard</div>
+          <div class="item">Transaction</div>
+          <div class="item">Wallet</div>
+          <div class="item">Setting</div>
+          <div class="item">Logout</div>
+        </nav>
+        <div class="right_icon_menu" v-on:click="toggle">
             <div class="menu-mobile">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -16,6 +23,28 @@ import DashLogo from '../../assets/DashLogo.vue'
 export default {
   components: {
     DashLogo
+  },
+  data () {
+    return {
+      show: false
+    }
+  },
+
+  methods: {
+    toggle: function () {
+      const mobilemenu = document.getElementById(this.$refs.menu.id)
+      if (this.show) {
+        mobilemenu.style.transition = 'all'
+        mobilemenu.style.transitionDuration = '1s'
+        mobilemenu.style.transform = 'translateX(240px)'
+        this.show = !this.show
+        return
+      }
+      mobilemenu.style.transition = 'all'
+      mobilemenu.style.transitionDuration = '1s'
+      mobilemenu.style.transform = 'translateX(-120px)'
+      this.show = !this.show
+    }
   }
 }
 </script>
@@ -57,6 +86,38 @@ export default {
   width: 100%;
   height: 2px;
   align-self: center;
+}
+
+#side_menu{
+  background:  #fff;
+  box-shadow: 0 32px 20px 5px rgba(168, 168, 168,0.6);
+  height: 100vh;
+  position:absolute;
+  width:240px;
+  top:60px;
+  left: -240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  gap: 50px;
+}
+
+.item{
+  width: 70%;
+  height: 70px;
+  text-align: center;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item:hover{
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px 5px rgba(168, 168, 168,0.6);
+  border-radius: 5px;
 }
 
 </style>

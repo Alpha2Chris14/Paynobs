@@ -28,7 +28,7 @@
             <img src="../../../assets/wallet-stat.5bec86c9.svg" alt="amount_in_wallet">
             <div>
                 <h6>Amount In Wallet</h6>
-                <p>0.00</p>
+                <p>₦0.00</p>
             </div>
         </div>
     </div>
@@ -47,12 +47,15 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content:space-around;
+        align-content:space-between;
         width:80%;
         border-radius: 10px;
         margin-top: 30px;
         box-shadow: 0 0 10px 10px rgba(247, 245, 245, 0.771);
-        padding-top: 20px;
+        padding-top: 40px;
         padding-bottom: 20px;
+        color: #121212;
+        margin-bottom: 20px;
     }
 
     .stat_item{
